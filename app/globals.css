@@ -1,27 +1,37 @@
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url("https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.navbar_link {
+  @apply text-sm text-primary-black/80 hover:text-primary-black transition-colors;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.icon {
+  @apply flex justify-center items-center w-6 h-6 text-2xl;
+}
+
+.input {
+  @apply flex items-center w-full border rounded h-14 px-4 placeholder:text-[#888];
+}
+
+.input_error {
+  @apply placeholder:text-primary-red border-primary-red bg-secondary-red;
+}
+
+.button {
+  @apply bg-primary-blue hover:bg-[#0077ed] text-white px-4 py-2 rounded-lg w-fit min-h-[48px];
+}
+
+/* Hide arrows from input number */
+@layer base {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield !important;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
