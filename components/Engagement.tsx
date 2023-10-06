@@ -10,45 +10,51 @@ export default async function Engagement() {
   return (
     <section className="mb-8">
       <div className="flex flex-col md:flex-row justify-between w-full max-w-[980px] px-4 md:px-0 mx-auto gap-3">
-        {engagement.map((item: Engagement) => (
-          <div key={item.node.id} className="relative w-full md:w-[485px] h-96">
-            <Image
-              src={
-                item.node.fields.find((field) => field.key === "03-image")
-                  ?.reference?.image.url!
-              }
-              alt="engagement"
-              width={484}
-              height={384}
-            />
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-end items-center p-6 text-white">
-              <h4 className="font-semibold text-4xl text-primary-black">
-                {
-                  item.node.fields.find((field) => field.key === "01-title")
-                    ?.value
+        {engagement.map((item: Engagement) => {
+          const linkValue = item.node.fields.find(
+            (field) => field.key === "04-link"
+          )?.value;
+
+          return (
+            <div
+              key={item.node.id}
+              className="relative w-full md:w-[485px] h-96"
+            >
+              <Image
+                src={
+                  item.node.fields.find((field) => field.key === "03-image")
+                    ?.reference?.image.url!
                 }
-              </h4>
-              <h5 className="text-xl text-center text-primary-black">
-                {
-                  item.node.fields.find(
-                    (field) => field.key === "02-description"
-                  )?.value
-                }
-              </h5>
-              <Link
-                href={
-                  item.node.fields.find((field) => field.key === "04-link")
-                    ?.value!
-                }
-              >
-                <div className="group flex items-center mt-3.5 text-tertiary-blue">
-                  <span className="group-hover:underline">Ver más</span>
-                  <i className="fi fi-rr-angle-small-right flex"></i>
-                </div>
-              </Link>
+                alt="engagement"
+                width={484}
+                height={384}
+              />
+              <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-end items-center p-6 text-white">
+                <h4 className="font-semibold text-4xl text-primary-black">
+                  {
+                    item.node.fields.find((field) => field.key === "01-title")
+                      ?.value
+                  }
+                </h4>
+                <h5 className="text-xl text-center text-primary-black">
+                  {
+                    item.node.fields.find(
+                      (field) => field.key === "02-description"
+                    )?.value
+                  }
+                </h5>
+                {linkValue && (
+                  <Link href={linkValue}>
+                    <div className="group flex items-center mt-3.5 text-tertiary-blue">
+                      <span className="group-hover:underline">Ver más</span>
+                      <i className="fi fi-rr-angle-small-right flex"></i>
+                    </div>
+                  </Link>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
