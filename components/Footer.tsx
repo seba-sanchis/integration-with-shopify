@@ -7,12 +7,12 @@ export default async function Footer() {
   const brand = await getBrand();
 
   const socialMedia = await getSocialMedia();
-
+console.log()
   return (
     <footer className="w-full bg-primary-gray">
       <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-[980px] my-3 mx-auto px-4 gap-4 text-sm">
         <div className="flex flex-col md:flex-row items-center md:gap-4">
-          <Image src={brand.image.url} alt="logo" width={40} height={40} />
+          <Image src={brand.brand.logo.image.url} alt="logo" width={40} height={40} />
           <Link href="/" className="navbar_link">
             Terminos y condiciones
           </Link>

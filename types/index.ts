@@ -19,10 +19,16 @@ export interface Bag {
 }
 
 export interface Brand {
-  image: {
-    url: string;
+  name: string;
+  description: string;
+  brand: {
+    logo: {
+      image: {
+        url: string;
+      };
+      alt: string;
+    };
   };
-  alt: string;
 }
 
 export interface Contact {

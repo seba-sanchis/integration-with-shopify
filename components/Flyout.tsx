@@ -23,7 +23,7 @@ export default function Flyout({
         className="navbar_link z-30"
         onClick={() => setToggleMenu(false)}
       >
-        <Image src={brand.image.url} alt="brand logo" width={40} height={40} />
+        <Image src={brand.brand.logo.image.url} alt="brand logo" width={40} height={40} />
       </Link>
 
       {/* Menu options */}

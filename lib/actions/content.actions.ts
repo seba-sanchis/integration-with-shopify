@@ -18,6 +18,8 @@ export async function getBrand() {
           query: `
             query getBrand {
               shop {
+                name
+                description
                 brand {
                   logo {
                     image {
@@ -39,9 +41,9 @@ export async function getBrand() {
       throw new Error(data.errors[0].message);
     }
 
-    return data.data.shop.brand.logo;
+    return data.data.shop;
   } catch (error: any) {
-    throw new Error(`Failed to fetch brand image: ${error.message}`);
+    throw new Error(`Failed to fetch brand: ${error.message}`);
   }
 }
 
@@ -86,7 +88,7 @@ export async function getGallery() {
 
     return data.data.metaobject.fields;
   } catch (error: any) {
-    throw new Error(`Failed to fetch banner: ${error.message}`);
+    throw new Error(`Failed to fetch gallery: ${error.message}`);
   }
 }
 
@@ -137,7 +139,7 @@ export async function getEngagement() {
 
     return data.data.metaobjects.edges;
   } catch (error: any) {
-    throw new Error(`Failed to fetch categories: ${error.message}`);
+    throw new Error(`Failed to fetch engagement: ${error.message}`);
   }
 }
 
@@ -175,6 +177,6 @@ export async function getSocialMedia() {
 
     return data.data.metaobject.fields;
   } catch (error: any) {
-    throw new Error(`Failed to fetch categories: ${error.message}`);
+    throw new Error(`Failed to fetch social media: ${error.message}`);
   }
 }
