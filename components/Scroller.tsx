@@ -120,7 +120,15 @@ export default function Scroller({ products }: { products: Product[] }) {
             <div className="flex" key={groupIndex}>
               {group.map((product, index) => (
                 <Link
-                  href={`/product/${product.node.id.match(/\d+/)![0]}`}
+                  href={`/shop/${product.node.collections.edges[0].node.title
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .replace(/ /g, "-")}/${product.node.title
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .replace(/ /g, "-")}`}
                   className="group flex flex-col items-center md:items-start min-w-[230px] w-screen md:w-full md:rounded-2xl bg-primary-gray cursor-pointer md:mx-2"
                   key={index}
                 >

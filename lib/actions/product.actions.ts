@@ -99,6 +99,13 @@ export async function getProducts() {
                 node {
                   id
                   title
+                  collections(first: 1) { 
+                    edges {
+                      node {
+                        title
+                      }
+                    }
+                  }
                   images(first: 1) {
                     edges {
                       node {
