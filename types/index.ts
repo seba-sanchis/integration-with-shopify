@@ -12,6 +12,7 @@ export interface Bag {
       product: {
         id: string;
         title: string;
+        collections: { edges: [{ node: { title: string } }] };
       };
       selectedOptions: [{ name: string; value: string }];
     };

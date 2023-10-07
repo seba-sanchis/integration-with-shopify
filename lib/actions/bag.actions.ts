@@ -147,6 +147,13 @@ export async function getBag() {
                         product {
                           id
                           title
+                          collections(first: 1) { 
+                            edges {
+                              node {
+                                title
+                              }
+                            }
+                          }
                         }
                         selectedOptions {
                           name

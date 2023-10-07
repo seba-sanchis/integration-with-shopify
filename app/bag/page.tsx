@@ -45,9 +45,18 @@ export default async function Page() {
             >
               <div className="flex h-full justify-center flex-1 md:max-w-[25%]">
                 <Link
-                  href={`/product/${
-                    product.node.merchandise.product.id.match(/\d+/)![0]
-                  }`}
+                  href={`/shop/${product.node.merchandise.product.collections.edges[0].node.title
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .replace(
+                      / /g,
+                      "-"
+                    )}/${product.node.merchandise.product.title
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .replace(/ /g, "-")}`}
                 >
                   <Image
                     src={product.node.merchandise.image.originalSrc}
@@ -62,9 +71,18 @@ export default async function Page() {
                 <div className="flex flex-col md:flex-row justify-between items-center w-full gap-1 md:gap-0">
                   <h2 className="text-2xl font-semibold hover:text-primary-blue w-full text-center md:text-start">
                     <Link
-                      href={`/product/${
-                        product.node.merchandise.product.id.match(/\d+/)![0]
-                      }`}
+                      href={`/shop/${product.node.merchandise.product.collections.edges[0].node.title
+                        .toLowerCase()
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .replace(
+                          / /g,
+                          "-"
+                        )}/${product.node.merchandise.product.title
+                        .toLowerCase()
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .replace(/ /g, "-")}`}
                     >
                       {product.node.merchandise.product.title}
                     </Link>
