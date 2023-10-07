@@ -1,4 +1,4 @@
-export const menu = ["Tienda", "Contacto"];
+export const menu = ["Tienda"];
 
 export const payments = [
   {

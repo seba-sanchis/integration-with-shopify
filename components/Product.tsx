@@ -16,7 +16,7 @@ export default function Product({
 }) {
   const router = useRouter();
 
-  const [attribute, setAttribute] = useState<{ [key: string]: string }>(
+  const [selected, setSelected] = useState<{ [key: string]: string }>(
     product.node.options.reduce((acc, option) => {
       return {
         ...acc,
@@ -31,7 +31,7 @@ export default function Product({
       const match = product.node.options.every((option) => {
         return item.node.selectedOptions.find(
           (item) =>
-            item.name === option.name && item.value === attribute[option.name]
+            item.name === option.name && item.value === selected[option.name]
         );
       });
 
@@ -57,7 +57,7 @@ export default function Product({
       router.push("/sign-in");
     }
   };
-
+  console.log(item);
   return (
     <div className="flex flex-row p-4 md:p-0">
       <div className="hidden md:flex flex-wrap flex-1">
@@ -93,7 +93,6 @@ export default function Product({
         <div className="pt-3 mb-4 md:mb-8 text-sm md:text-base">
           {product.node.description}
         </div>
-
         <form onSubmit={handleSubmit} className="border-t border-[#d2d2d7]">
           {product.node.options.map((option) => (
             <div key={option.name}>
@@ -104,10 +103,10 @@ export default function Product({
                     <input
                       id={value}
                       value={value}
-                      checked={attribute[option.name] === value} // Check if this value is selected
+                      checked={selected[option.name] === value} // Check if this value is selected
                       onChange={(e) =>
-                        setAttribute({
-                          ...attribute,
+                        setSelected({
+                          ...selected,
                           [option.name]: e.target.value,
                         })
                       }
@@ -143,7 +142,9 @@ export default function Product({
               </div>
             </div>
 
-            <button className="button">Agregar al carrito</button>
+            <button disabled={item?.quantityAvailable === 0} className="button">
+              Agregar al carrito
+            </button>
           </div>
         </form>
       </div>

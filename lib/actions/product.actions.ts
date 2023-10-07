@@ -54,6 +54,7 @@ export async function getProduct(name: string) {
                           image {
                             url
                           }
+                          quantityAvailable
                         }
                       }
                     }

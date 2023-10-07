@@ -87,6 +87,7 @@ export interface Product {
             priceV2: { amount: string };
             selectedOptions: [{ name: string; value: string }];
             image: { url: string };
+            quantityAvailable: number;
           };
         }
       ];
