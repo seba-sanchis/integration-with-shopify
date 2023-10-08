@@ -74,3 +74,41 @@ export async function signOut() {
     throw new Error(`Failed to fetch customer: ${error.message}`);
   }
 }
+
+// Reset Password
+export async function resetPassword(email: string) {
+  try {
+    const response = await fetch(
+      `${SHOPIFY_STORE_URL}/api/2023-07/graphql.json`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Shopify-Storefront-Access-Token": SHOPIFY_ACCESS_TOKEN!,
+        },
+        body: JSON.stringify({
+          query: `
+            mutation resetCustomerPassword {
+              customerRecover(email: "${email}") {
+                userErrors {
+                  field
+                  message
+                }
+              }
+            }
+          `,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.errors) {
+      throw new Error(data.errors[0].message);
+    }
+
+    return data.data.customerRecover.userErrors;
+  } catch (error: any) {
+    throw new Error(`Failed to reset account password: ${error.message}`);
+  }
+}
