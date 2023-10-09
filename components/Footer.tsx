@@ -11,14 +11,17 @@ export default async function Footer() {
   return (
     <footer className="w-full bg-primary-gray">
       <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-[980px] my-3 mx-auto px-4 gap-4 text-sm">
-        <div className="flex flex-col md:flex-row items-center md:gap-4">
+        <div className="flex flex-row items-center gap-4">
           <Image
             src={brand.brand.logo.image.url}
             alt="logo"
             width={40}
             height={40}
           />
-          <Link href="/" className="navbar_link">
+          <div className="navbar_link">
+            <span>{brand.name}</span> - <span>{brand.brand.slogan}</span>
+          </div>
+          {/* <Link href="/" className="navbar_link">
             Terminos y condiciones
           </Link>
           <Link href="/" className="navbar_link">
@@ -26,7 +29,7 @@ export default async function Footer() {
           </Link>
           <Link href="/" className="navbar_link">
             Ayuda
-          </Link>
+          </Link> */}
         </div>
         <div className="flex gap-4">
           {socialMedia.map((socialMedia: SocialMedia) => (

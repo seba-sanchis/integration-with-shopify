@@ -27,7 +27,7 @@ export default async function Page() {
         <h1 className="text-[40px] font-semibold">Revisá tu carrito.</h1>
         <span className="pt-3 text-[17px]">Envío gratuito a todo el país.</span>
 
-        <div className="flex justify-center items-center p-4 md:p-5 mt-14 rounded-lg text-sm bg-primary-gray">
+        <div className="flex justify-center items-center p-4 md:p-5 mt-6 md:mt-12 rounded-lg text-sm bg-primary-gray">
           <div className="flex md:px-24">
             <i className="fi fi-rr-messages text-xl"></i>
             <div className="ml-2">
@@ -37,7 +37,7 @@ export default async function Page() {
           </div>
         </div>
 
-        <ol className="mt-16">
+        <ol className="mt-8 md:mt-16">
           {bag.map((product: Bag) => (
             <li
               key={product.node.id}
@@ -68,8 +68,8 @@ export default async function Page() {
               </div>
 
               <div className="flex flex-col items-center md:items-stretch flex-1 w-full md:max-w-[75%]">
-                <div className="flex flex-col md:flex-row justify-between items-center w-full gap-1 md:gap-0">
-                  <h2 className="text-2xl font-semibold hover:text-primary-blue w-full text-center md:text-start">
+                <div className="flex flex-col md:flex-row justify-between items-center w-full gap-2 md:gap-0">
+                  <h2 className="text-2xl font-semibold hover:text-primary-blue w-full">
                     <Link
                       href={`/shop/${product.node.merchandise.product.collections.edges[0].node.title
                         .toLowerCase()

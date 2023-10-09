@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@/lib/actions/account.actions";
 import { signInValidation } from "@/lib/validations";
@@ -19,8 +19,6 @@ export default function SignIn() {
   });
   const [toggleInput, setToggleInput] = useState(true);
   const [error, setError] = useState<Validation>();
-
-  const [isPending, startTransition] = useTransition();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,7 +57,7 @@ export default function SignIn() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center w-full h-20"
+      className="flex flex-col items-center w-full max-w-sm h-20"
     >
       <label className="sr-only">Iniciá sesión con tu e-mail</label>
       {toggleInput ? (

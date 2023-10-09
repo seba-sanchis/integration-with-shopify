@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: brand.name,
-    description: brand.description,
+    description: brand.brand.shortDescription,
   };
 }
 

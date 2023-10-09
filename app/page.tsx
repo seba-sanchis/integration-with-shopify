@@ -1,7 +1,11 @@
-import { CardsShelf, Engagement, MainGallery, PaymentMethods } from "@/components";
+import {
+  CardsShelf,
+  Engagement,
+  MainGallery,
+  PaymentMethods,
+} from "@/components";
 
-export default function Home() {
-  
+export default async function Home() {
   return (
     <main className="w-full flex-1 flex flex-col gap-3">
       <MainGallery />

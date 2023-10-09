@@ -21,8 +21,9 @@ export interface Bag {
 
 export interface Brand {
   name: string;
-  description: string;
   brand: {
+    shortDescription: string;
+    slogan: string;
     logo: {
       image: {
         url: string;

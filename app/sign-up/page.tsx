@@ -4,9 +4,9 @@ import { SignUp } from "@/components";
 
 export default function Page() {
   return (
-    <div className="flex flex-col w-full max-w-[1200px]">
+    <div className="flex flex-col w-full max-w-[1200px] px-4">
       <div className="flex flex-col items-center pt-8 max-w-[460px] mx-auto">
-        <h1 className="text-3xl font-bold">Creá tu cuenta</h1>
+        <h1 className="text-2xl md:text-3xl font-bold">Creá tu cuenta</h1>
         <div className="text-center my-2">
           Una cuenta es todo lo que necesitas para comenzar a agregar productos
           a tu carrito.

@@ -57,27 +57,26 @@ export default function Product({
       router.push("/sign-in");
     }
   };
-  console.log(item);
+
   return (
     <div className="flex flex-row p-4 md:p-0">
       <div className="hidden md:flex flex-wrap flex-1">
-        <div className="block sticky top-0 h-fit">
+        <div className="block md:sticky md:top-0 h-fit">
           {product && item && (
             <Image
               src={item.image.url}
               alt="product"
               width={410}
               height={410}
-              className="bg-gree-600"
             />
           )}
         </div>
       </div>
       <div className="flex flex-col flex-wrap flex-1">
-        <h1 className="text-2xl md:text-4xl font-semibold">
+        <h1 className="text-2xl md:text-4xl font-semibold mb-2 md:m-0">
           {product.node.title}
         </h1>
-        <div className="flex justify-center md:hidden md:justify-start flex-wrap flex-1">
+        <div className="flex justify-center md:hidden md:justify-start flex-wrap flex-1 mb-2 md:m-0">
           <div className="block w-[75%]">
             {product && item && (
               <Image
@@ -85,7 +84,6 @@ export default function Product({
                 alt="product"
                 width={410}
                 height={410}
-                className="bg-gree-600"
               />
             )}
           </div>

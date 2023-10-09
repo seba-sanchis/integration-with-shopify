@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { signIn } from "@/lib/actions/account.actions";
@@ -21,8 +21,6 @@ export default function SignUp() {
   });
 
   const [error, setError] = useState<Validation>();
-
-  const [isPending, startTransition] = useTransition();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

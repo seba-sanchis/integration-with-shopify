@@ -25,7 +25,7 @@ export default async function Navbar() {
   const brand = await getBrand();
 
   return (
-    <header className="w-full h-14 px-4 z-10 bg-[rgba(251,251,253,.8)]">
+    <header className="w-full h-14 px-4 z-50 bg-[rgba(251,251,253,.8)]">
       <nav className="flex justify-between items-center w-full max-w-[980px] h-full mx-auto">
         <Flyout brand={brand} sections={sections} />
 

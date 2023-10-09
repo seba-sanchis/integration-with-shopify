@@ -23,7 +23,7 @@ export default function ForgotPassword() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
-      <div className="w-80 h-20">
+      <div className="max-w-sm h-20">
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}

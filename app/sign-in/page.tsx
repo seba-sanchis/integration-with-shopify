@@ -10,12 +10,14 @@ export default async function Page() {
   if (accessToken) return redirect("/");
 
   return (
-    <section className="flex flex-col flex-1 max-w-[980px] w-full mx-auto">
-      <h1 className="text-[40px] font-semibold pt-[34px]">
+    <section className="flex flex-col flex-1 max-w-[980px] w-full">
+      <h1 className="hidden md:block text-4xl font-semibold pt-[34px]">
         Iniciá sesión para comprar.
       </h1>
-      <div className="flex flex-col items-center grow w-[480px] mt-[72px] mx-auto text-[#494949]">
-        <h2 className="text-2xl font-semibold mb-10">Ingresá a la tienda</h2>
+      <div className="flex flex-col items-center grow mt-[72px] text-[#494949] px-4">
+        <h2 className="text-2xl font-semibold mb-10">
+          Ingresá a la tienda
+        </h2>
 
         <SignIn />
 

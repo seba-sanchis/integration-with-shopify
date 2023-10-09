@@ -19,8 +19,9 @@ export async function getBrand() {
             query getBrand {
               shop {
                 name
-                description
                 brand {
+                  shortDescription
+                  slogan
                   logo {
                     image {
                       url

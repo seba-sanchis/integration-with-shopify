@@ -32,7 +32,7 @@ export default function EditPrivacy({ privacy }: { privacy: Privacy }) {
 
     // All validations passed, create account
     if (Object.keys(validation).length === 0) {
-      // const response = 
+      // const response =
       await editPrivacy(account);
 
       router.refresh();
@@ -58,16 +58,16 @@ export default function EditPrivacy({ privacy }: { privacy: Privacy }) {
       <div
         onClick={() => setToggleForm(false)}
         className={`fixed transition-opacity duration-100 ease-in-out overflow-y-auto bg-[rgba(50,50,50,.88)] ${
-          toggleForm ? "opacity-100 z-10 inset-0" : "opacity-0"
+          toggleForm ? "opacity-100 z-50 inset-0" : "opacity-0"
         }`}
       >
         {toggleForm && (
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative inset-0 max-w-[816px] z-10 my-10 mx-auto p-20 rounded-2xl bg-white"
+            className="relative inset-0 max-w-[816px] z-10 my-10 mx-auto px-4 py-10 md:p-20 rounded-2xl bg-white"
           >
-            <div className="max-w-[75%] mx-auto">
-              <h2 className="text-4xl text-center font-semibold pb-4">
+            <div className="md:max-w-[75%] mx-auto">
+              <h2 className="text-2xl md:text-4xl text-center font-semibold pb-4">
                 Actualizá tus datos.
               </h2>
               <div className="pb-5">
@@ -77,7 +77,7 @@ export default function EditPrivacy({ privacy }: { privacy: Privacy }) {
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col w-full">
               <div className="w-full border-b border-[#e7e7e8]">
-                <div className="flex flex-col gap-4 w-full py-8 max-w-[75%] mx-auto">
+                <div className="flex flex-col gap-4 w-full py-8 md:max-w-[75%] mx-auto">
                   <h3 className="font-semibold">Personal</h3>
 
                   {/* Personal info */}
@@ -134,7 +134,7 @@ export default function EditPrivacy({ privacy }: { privacy: Privacy }) {
 
               {/* Account */}
               <div className="w-full border-b border-[#e7e7e8]">
-                <div className="flex flex-col gap-4 w-full py-8 max-w-[75%] mx-auto">
+                <div className="flex flex-col gap-4 w-full py-8 md:max-w-[75%] mx-auto">
                   <h3 className="font-semibold">Cuenta</h3>
                   <div>
                     <input

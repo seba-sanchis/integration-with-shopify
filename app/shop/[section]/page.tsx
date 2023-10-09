@@ -14,7 +14,7 @@ export default async function Page({
       <div className="flex flex-col flex-grow w-full max-w-[980px] mb-8">
         <section className="flex flex-col">
           <div className="pt-14 pb-5">
-            <h1 className="text-center text-5xl leading-[1.05] font-semibold">
+            <h1 className="text-center text-2xl md:text-5xl leading-[1.05] font-semibold">
               {section.title}
             </h1>
           </div>
