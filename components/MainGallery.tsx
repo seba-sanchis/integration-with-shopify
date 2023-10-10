@@ -7,12 +7,14 @@ import { Gallery } from "@/types";
 export default async function MainGallery() {
   const gallery = await getGallery();
 
-  const title = gallery.find((item: Gallery) => item.key === "title")?.value;
-  const subtitle = gallery.find(
+  const title = await gallery.find((item: Gallery) => item.key === "title")
+    ?.value;
+  const subtitle = await gallery.find(
     (item: Gallery) => item.key === "subtitle"
   )?.value;
-  const link = gallery.find((item: Gallery) => item.key === "link")?.value;
-  const imageUrl = gallery.find((item: Gallery) => item.key === "image")
+  const link = await gallery.find((item: Gallery) => item.key === "link")
+    ?.value;
+  const imageUrl = await gallery.find((item: Gallery) => item.key === "image")
     ?.reference.image.url;
 
   return (
