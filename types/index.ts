@@ -48,6 +48,11 @@ export interface Engagement {
   };
 }
 
+export interface Gallery {
+  key: string;
+  value: string;
+}
+
 export interface Item {
   name: string;
   value: string;
