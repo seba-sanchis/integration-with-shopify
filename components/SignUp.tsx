@@ -30,12 +30,9 @@ export default function SignUp() {
 
     // All validations passed, create account
     if (Object.keys(validation).length === 0) {
-      // const response =
       await newPrivacy(account);
 
-      // if (response) {
       await signIn(account);
-      // }
 
       router.refresh();
       router.push("/profile/account");

@@ -28,10 +28,23 @@ export default function SignIn() {
 
     // All validations passed, create account
     if (Object.keys(validation).length === 0) {
-      await signIn(account);
+      const response = await signIn(account);
 
-      router.refresh();
-      router.back();
+      if (response.message) {
+        setAccount({
+          id: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
+        setToggleInput(true);
+        setError(validation);
+      } else {
+        router.refresh();
+        router.back();
+      }
     } else {
       // Form has error
       setAccount({

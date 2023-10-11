@@ -213,7 +213,7 @@ export default function EditShipping({ shipping }: { shipping: Shipping }) {
               <div className="w-full border-b border-[#e7e7e8]">
                 <div className="flex flex-col gap-4 w-full py-8 md:max-w-[75%] mx-auto">
                   <h3 className="font-semibold">Contacto</h3>
-                  <div className="flex gap-4">
+                  <div>
                     <input
                       value={account.phone}
                       onChange={(e) =>

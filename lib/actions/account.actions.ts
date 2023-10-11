@@ -43,9 +43,7 @@ export async function signIn(account: Privacy) {
     const data = await response.json();
 
     if (data.data.customerAccessTokenCreate.userErrors[0]) {
-      throw new Error(
-        `${data.data.customerAccessTokenCreate.userErrors[0].message}`
-      );
+      return data.data.customerAccessTokenCreate.userErrors[0];
     }
 
     const accessToken =
