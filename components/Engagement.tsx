@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { getEngagement } from "@/lib/actions/content.actions";
-import { Engagement } from "@/types";
+import { Content, Engagement } from "@/types";
 
 export default async function Engagement() {
   const engagement = await getEngagement();
@@ -12,34 +12,34 @@ export default async function Engagement() {
       <div className="flex flex-col md:flex-row justify-between w-full max-w-[980px] px-4 md:px-0 mx-auto gap-3">
         {engagement.map((item: Engagement) => {
           const linkValue = item.node.fields.find(
-            (field) => field.key === "04-link"
+            (field) => field.key === "link"
           )?.value;
 
           return (
             <div
               key={item.node.id}
-              className="relative w-full md:w-[485px] h-96"
+              className="relative w-full md:w-[484px] h-[336px]]"
             >
               <Image
                 src={
-                  item.node.fields.find((field) => field.key === "03-image")
+                  item.node.fields.find((field) => field.key === "image")
                     ?.reference?.image.url!
                 }
                 alt="engagement"
                 width={484}
-                height={384}
+                height={336}
               />
               <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-end items-center p-6 text-white">
                 <h4 className="font-semibold text-4xl text-primary-black">
                   {
-                    item.node.fields.find((field) => field.key === "01-title")
+                    item.node.fields.find((field) => field.key === "title")
                       ?.value
                   }
                 </h4>
                 <h5 className="text-xl text-center text-primary-black">
                   {
                     item.node.fields.find(
-                      (field) => field.key === "02-description"
+                      (field) => field.key === "description"
                     )?.value
                   }
                 </h5>

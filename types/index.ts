@@ -39,6 +39,11 @@ export interface Contact {
   message: string;
 }
 
+export interface Content {
+  key: string;
+  value: string;
+}
+
 export interface Engagement {
   node: {
     id: string;
@@ -46,11 +51,6 @@ export interface Engagement {
       { value: string; key: string; reference?: { image: { url: string } } }
     ];
   };
-}
-
-export interface Gallery {
-  key: string;
-  value: string;
 }
 
 export interface Item {

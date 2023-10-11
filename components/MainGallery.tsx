@@ -2,19 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { getGallery } from "@/lib/actions/content.actions";
-import { Gallery } from "@/types";
+import { Content } from "@/types";
 
 export default async function MainGallery() {
   const gallery = await getGallery();
 
-  const title = await gallery.find((item: Gallery) => item.key === "title")
+  const title = await gallery.find((item: Content) => item.key === "title")
     ?.value;
   const subtitle = await gallery.find(
-    (item: Gallery) => item.key === "subtitle"
+    (item: Content) => item.key === "subtitle"
   )?.value;
-  const link = await gallery.find((item: Gallery) => item.key === "link")
+  const link = await gallery.find((item: Content) => item.key === "link")
     ?.value;
-  const imageUrl = await gallery.find((item: Gallery) => item.key === "image")
+  const imageUrl = await gallery.find((item: Content) => item.key === "image")
     ?.reference.image.url;
 
   return (
@@ -39,8 +39,8 @@ export default async function MainGallery() {
           <Image
             src={imageUrl}
             alt="advertising gallery"
-            width={350}
-            height={350}
+            width={550}
+            height={344}
           />
         </div>
       </div>

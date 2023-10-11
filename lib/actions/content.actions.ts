@@ -62,7 +62,7 @@ export async function getGallery() {
         body: JSON.stringify({
           query: `
           query getGallery {
-            metaobject(handle: { handle: "banner", type: "banner" }) {
+            metaobject(handle: { handle: "gallery", type: "gallery" }) {
               fields {
                 key
                 value
@@ -127,7 +127,7 @@ export async function getEngagement() {
             }
           }
         `,
-          variables: { type: "categories", first: 2 },
+          variables: { type: "engagement", first: 2 },
         }),
       }
     );
