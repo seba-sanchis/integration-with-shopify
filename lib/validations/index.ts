@@ -1,4 +1,18 @@
-import { Privacy, Shipping, Validation } from "@/types";
+import { Password, Privacy, Shipping, Validation } from "@/types";
+
+export function passwordValidation(newPassword: Password) {
+  let error: Validation = {};
+
+  if (!newPassword.password) {
+    error.password = "La contraseña es requerida.";
+  }
+
+  if (newPassword.password !== newPassword.confirmPassword) {
+    error.password = "Las contraseñas no coinciden.";
+  }
+
+  return error;
+}
 
 export function privacyValidation(privacy: Privacy) {
   let error: Validation = {};

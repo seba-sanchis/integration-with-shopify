@@ -58,6 +58,11 @@ export interface Item {
   value: string;
 }
 
+export interface Password {
+  password: string;
+  confirmPassword: string;
+}
+
 export interface Privacy {
   id: string;
   firstName: string;

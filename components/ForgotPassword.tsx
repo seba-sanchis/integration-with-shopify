@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { resetPassword } from "@/lib/actions/account.actions";
+import { forgotPassword } from "@/lib/actions/account.actions";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -12,8 +12,8 @@ export default function ForgotPassword() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const error = await resetPassword(email);
-    console.log(error);
+    const error = await forgotPassword(email);
+
     if (error.length > 0) {
       setError(error[0].message);
     } else {
@@ -22,8 +22,8 @@ export default function ForgotPassword() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
-      <div className="max-w-sm h-20">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-10 mt-4">
+      <div className="max-w-sm">
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}

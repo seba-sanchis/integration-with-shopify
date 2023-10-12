@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 import { newBag } from "./bag.actions";
-import { Privacy } from "@/types";
+import { Password, Privacy } from "@/types";
 
 const { SHOPIFY_ACCESS_TOKEN, SHOPIFY_STORE_URL } = process.env;
 
@@ -73,8 +73,8 @@ export async function signOut() {
   }
 }
 
-// Reset Password
-export async function resetPassword(email: string) {
+// Forgot Password
+export async function forgotPassword(email: string) {
   try {
     const response = await fetch(
       `${SHOPIFY_STORE_URL}/api/2023-07/graphql.json`,
@@ -86,7 +86,7 @@ export async function resetPassword(email: string) {
         },
         body: JSON.stringify({
           query: `
-            mutation resetCustomerPassword {
+            mutation resetPassword {
               customerRecover(email: "${email}") {
                 userErrors {
                   field
@@ -106,6 +106,59 @@ export async function resetPassword(email: string) {
     }
 
     return data.data.customerRecover.userErrors;
+  } catch (error: any) {
+    throw new Error(`Failed to reset account password: ${error.message}`);
+  }
+}
+
+// Reset Password
+export async function resetPassword(
+  id: string,
+  token: string,
+  newPassword: Password
+) {
+  try {
+    const privacyId = `gid://shopify/Customer/${id}`;
+
+    const { password } = newPassword;
+
+    const response = await fetch(
+      `${SHOPIFY_STORE_URL}/api/2023-10/graphql.json`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Shopify-Storefront-Access-Token": SHOPIFY_ACCESS_TOKEN!,
+        },
+        body: JSON.stringify({
+          query: `
+            mutation customerReset($id: ID!, $input: CustomerResetInput!) {
+              customerReset(id: $id, input: $input) {
+                customerUserErrors {
+                  field
+                  message
+                }
+              }
+            }
+          `,
+          variables: {
+            id: privacyId,
+            input: {
+              resetToken: token,
+              password: password,
+            },
+          },
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.errors) {
+      throw new Error(data.errors[0].message);
+    }
+
+    return data.data.customerReset.customerUserErrors;
   } catch (error: any) {
     throw new Error(`Failed to reset account password: ${error.message}`);
   }
