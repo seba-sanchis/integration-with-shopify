@@ -120,7 +120,7 @@ export default function Scroller({ products }: { products: Product[] }) {
             <div className="flex" key={groupIndex}>
               {group.map((product, index) => (
                 <Link
-                  href={`/shop/${product.node.collections.edges[0].node.title
+                  href={`/shop/${product.node.collections.edges[0]?.node.title
                     .toLowerCase()
                     .normalize("NFD")
                     .replace(/[\u0300-\u036f]/g, "")
@@ -134,7 +134,7 @@ export default function Scroller({ products }: { products: Product[] }) {
                 >
                   <div className="flex flex-contain rounded-2xl-t overflow-hidden">
                     <Image
-                      src={product.node.images.edges[0].node.originalSrc}
+                      src={product.node.images.edges[0]?.node.originalSrc}
                       alt={product.node.title}
                       width={230}
                       height={230}
