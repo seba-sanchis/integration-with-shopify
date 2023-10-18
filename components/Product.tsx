@@ -62,9 +62,9 @@ export default function Product({
     <div className="flex flex-row p-4 md:p-0">
       <div className="hidden md:flex flex-wrap flex-1">
         <div className="block md:sticky md:top-0 h-fit">
-          {product && item && (
+          {product && item && item.image?.url && (
             <Image
-              src={item.image.url}
+              src={item.image?.url}
               alt="product"
               width={410}
               height={410}
@@ -78,7 +78,7 @@ export default function Product({
         </h1>
         <div className="flex justify-center md:hidden md:justify-start flex-wrap flex-1 mb-2 md:m-0">
           <div className="block w-[75%]">
-            {product && item && (
+            {product && item && item.image?.url && (
               <Image
                 src={item.image.url}
                 alt="product"
