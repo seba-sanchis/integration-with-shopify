@@ -40,13 +40,14 @@ export default function SearchMenu() {
             placeholder="Buscar"
             className="flex w-full h-10 pr-1 pl-4 rounded-l-full text-sm outline-none border focus:border-tertiary-gray bg-primary-gray"
           />
-          <button className="flex items-center justify-center w-16 h-10 rounded-r-full bg-primary-gray">
+          <button aria-label="Search" className="flex items-center justify-center w-16 h-10 rounded-r-full bg-primary-gray">
             <i className="fi fi-rr-search flex justify-center items-center"></i>
           </button>
         </form>
       </div>
 
       <button
+        aria-label="Search"
         onClick={() => setToggleBar(true)}
         className="flex justify-center items-center w-10 h-10 text-primary-black/80 hover:text-primary-black transition-colors"
       >

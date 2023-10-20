@@ -19,6 +19,7 @@ export default function Menu({
   return (
     <div className="block md:hidden">
       <button
+        aria-label="Menu"
         onClick={() => setToggleMenu((state) => !state)}
         className="flex relative justify-center items-center w-10 h-10 z-10 text-primary-black/80 hover:text-primary-black transition-colors"
       >

@@ -190,6 +190,7 @@ export default function Scroller({ products }: { products: Product[] }) {
           (_, index) => (
             <li key={index}>
               <button
+                aria-label={`item ${index} - Best sellers`}
                 onClick={() => setCurrentIndex(index)}
                 className={`cursor-pointer rounded-full w-2 h-2 mx-2 transition-colors duration-100 ease-linear ${
                   index === currentIndex

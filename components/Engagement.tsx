@@ -29,7 +29,7 @@ export default async function Engagement() {
                 width={484}
                 height={336}
               />
-              <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-end items-center p-6 text-white">
+              {/* <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-end items-center p-6 text-white">
                 <h4 className="font-semibold text-4xl text-primary-black">
                   {
                     item.node.fields.find((field) => field.key === "title")
@@ -51,7 +51,7 @@ export default async function Engagement() {
                     </div>
                   </Link>
                 )}
-              </div>
+              </div> */}
             </div>
           );
         })}

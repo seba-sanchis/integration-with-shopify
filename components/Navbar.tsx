@@ -49,6 +49,7 @@ export default async function Navbar() {
           )}
           <SearchMenu />
           <Link
+            aria-label="Shopping Bag"
             href={accessToken ? "/bag" : "/sign-in"}
             className="flex justify-center items-center w-10 h-10"
           >
