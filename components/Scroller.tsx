@@ -169,7 +169,11 @@ export default function Scroller({ products }: { products: Product[] }) {
             {/* Left Arrow */}
             {currentIndex > 0 && (
               <div className="flex justify-center items-center absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-[rgba(210,210,215,.64)] text-[rgba(0,0,0,.56)] cursor-pointer">
-                <button onClick={prevSlide} className="w-8 h-8">
+                <button
+                  aria-label="Previous products best sellers"
+                  onClick={prevSlide}
+                  className="w-8 h-8"
+                >
                   <i className="fi fi-rr-angle-left flex justify-center items-center mr-1"></i>
                 </button>
               </div>
@@ -177,7 +181,11 @@ export default function Scroller({ products }: { products: Product[] }) {
             {/* Right Arrow */}
             {(currentIndex + 1) * groupSize < products.length && (
               <div className="flex justify-center items-center absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-[rgba(210,210,215,.64)] text-[rgba(0,0,0,.56)] cursor-pointer">
-                <button onClick={nextSlide} className="w-8 h-8">
+                <button
+                  aria-label="Next products best sellers"
+                  onClick={nextSlide}
+                  className="w-8 h-8"
+                >
                   <i className="fi fi-rr-angle-right flex justify-center items-center ml-1"></i>
                 </button>
               </div>

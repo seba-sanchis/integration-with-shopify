@@ -33,7 +33,11 @@ export default async function Footer() {
         </div>
         <div className="flex gap-4">
           {socialMedia.map((socialMedia: SocialMedia) => (
-            <Link href={socialMedia.value} key={socialMedia.key}>
+            <Link
+              href={socialMedia.value}
+              key={socialMedia.key}
+              aria-label={socialMedia.key}
+            >
               <i
                 className={`fi fi-brands-${socialMedia.key} icon cursor-pointer text-primary-black/80 hover:text-primary-black`}
               ></i>
