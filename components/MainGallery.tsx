@@ -41,6 +41,7 @@ export default async function MainGallery() {
             alt="advertising gallery"
             width={550}
             height={344}
+            loading="eager"
           />
         </div>
       </div>
