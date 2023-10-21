@@ -2,12 +2,6 @@
 @import url("https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css");
 @import url("https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css");
 
-@font-face {
-  font-family: "Flaticon";
-  src: url("path/to/font.woff2") format("woff2");
-  font-display: swap;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
