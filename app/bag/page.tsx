@@ -45,7 +45,7 @@ export default async function Page() {
             >
               <div className="flex h-full justify-center flex-1 md:max-w-[25%]">
                 <Link
-                  href={`/shop/${product.node.merchandise.product.collections.edges[0].node.title
+                  href={`/shop/${product.node.merchandise.product.collections.edges[0]?.node.title
                     .toLowerCase()
                     .normalize("NFD")
                     .replace(/[\u0300-\u036f]/g, "")
@@ -71,7 +71,7 @@ export default async function Page() {
                 <div className="flex flex-col md:flex-row justify-between items-center w-full gap-2 md:gap-0">
                   <h2 className="text-2xl font-semibold hover:text-primary-blue w-full">
                     <Link
-                      href={`/shop/${product.node.merchandise.product.collections.edges[0].node.title
+                      href={`/shop/${product.node.merchandise.product.collections.edges[0]?.node.title
                         .toLowerCase()
                         .normalize("NFD")
                         .replace(/[\u0300-\u036f]/g, "")
