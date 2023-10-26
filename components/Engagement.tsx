@@ -29,14 +29,14 @@ export default async function Engagement() {
                 width={484}
                 height={336}
               />
-              {/* <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-end items-center p-6 text-white">
-                <h4 className="font-semibold text-4xl text-primary-black">
+              <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-end items-center p-6 text-white">
+                <h4 className="font-semibold text-4xl">
                   {
                     item.node.fields.find((field) => field.key === "title")
                       ?.value
                   }
                 </h4>
-                <h5 className="text-xl text-center text-primary-black">
+                <h5 className="text-xl text-center text-white">
                   {
                     item.node.fields.find(
                       (field) => field.key === "description"
@@ -45,13 +45,13 @@ export default async function Engagement() {
                 </h5>
                 {linkValue && (
                   <Link href={linkValue}>
-                    <div className="group flex items-center mt-3.5 text-tertiary-blue">
+                    <div className="group flex items-center mt-3.5">
                       <span className="group-hover:underline">Ver más</span>
                       <i className="fi fi-rr-angle-small-right flex"></i>
                     </div>
                   </Link>
                 )}
-              </div> */}
+              </div>
             </div>
           );
         })}
